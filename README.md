@@ -131,6 +131,13 @@ Key files:
 - `src/db.ts` - SQLite operations (messages, groups, sessions, state)
 - `groups/*/CLAUDE.md` - Per-group memory
 
+**📚 Documentation:**
+- **[Codebase Breakdown](docs/CODEBASE_BREAKDOWN.md)** - Complete technical breakdown (~45KB)
+- **[Visual Guide](docs/VISUAL_GUIDE.md)** - Architecture diagrams and flowcharts
+- **[Quick Reference](docs/QUICK_REFERENCE.md)** - Commands, config, and common patterns
+- **[Security Model](docs/SECURITY.md)** - Container isolation details
+- **[Requirements](docs/REQUIREMENTS.md)** - Design philosophy and decisions
+
 ## FAQ
 
 **Why WhatsApp and not Telegram/Signal/etc?**
