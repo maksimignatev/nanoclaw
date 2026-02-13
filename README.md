@@ -53,6 +53,7 @@ Then run `/setup`. Claude Code handles everything: dependencies, authentication,
 - **Web access** - Search and fetch content
 - **Container isolation** - Agents sandboxed in Apple Container (macOS) or Docker (macOS/Linux)
 - **Agent Swarms** - Spin up teams of specialized agents that collaborate on complex tasks (first personal AI assistant to support this)
+- **Git-based requests** - Use the repository itself as an interface for issuing instructions and receiving responses ([docs/git-protocol.md](docs/git-protocol.md))
 - **Optional integrations** - Add Gmail (`/add-gmail`) and more via skills
 
 ## Usage
@@ -71,6 +72,29 @@ From the main channel (your self-chat), you can manage groups and tasks:
 @Andy pause the Monday briefing task
 @Andy join the Family Chat group
 ```
+
+### Git-Based Requests
+
+You can also interact with the repository directly using the git-based protocol:
+
+```bash
+# Create a request
+REQUEST_ID="$(date +%Y%m%d-%H%M%S)-my-task"
+mkdir -p "requests/$REQUEST_ID"
+echo "# My Request" > "requests/$REQUEST_ID/request.md"
+echo "Please analyze this scenario..." >> "requests/$REQUEST_ID/request.md"
+
+# Commit and push
+git add "requests/$REQUEST_ID"
+git commit -m "Add request: $REQUEST_ID"
+git push origin main
+
+# Wait for GitHub Actions to process, then pull the response
+git pull origin main
+cat "responses/$REQUEST_ID/response.md"
+```
+
+See [docs/git-protocol.md](docs/git-protocol.md) for complete documentation.
 
 ## Customizing
 
