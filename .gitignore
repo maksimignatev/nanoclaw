@@ -18,6 +18,9 @@ groups/global/*
 !groups/main/CLAUDE.md
 !groups/global/CLAUDE.md
 
+# Git-based protocol - track structure but allow user-created requests/responses
+# (Users can modify this if they want to ignore specific requests/responses)
+
 # Secrets
 *.keys.json
 .env
